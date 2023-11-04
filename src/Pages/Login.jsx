@@ -3,12 +3,14 @@ import { AuthContext } from "../Context/AuthProvider";
 import toast from "react-hot-toast";
 import { FcGoogle } from 'react-icons/fc';
 import { FaEyeSlash, FaEye } from 'react-icons/fa';
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Navbar from "../Components/Navbar";
 
 const Login = () => {
     const {emailLogin, googleLogin} = useContext(AuthContext)
     const [showPassword, setShowPassword] = useState(false)
+    const navigate = useNavigate(null)
+    const location = useLocation()
 
     const handleLogin = e =>{
         e.preventDefault()
@@ -18,7 +20,7 @@ const Login = () => {
         emailLogin( email, password )
         .then(() =>{
             toast.success('Login successfully');
-            // navigate(location?.state ? location.state : '/')
+            navigate(location?.state ? location.state : '/')
              
         })
         .catch(error =>{
@@ -29,7 +31,7 @@ const Login = () => {
         googleLogin()
         .then(() =>{
             toast.success('Login successfully');
-            // navigate(location?.state ? location.state : '/')
+            navigate(location?.state ? location.state : '/')
         })
         .catch(error =>{
             toast.error(error.message);
@@ -50,7 +52,7 @@ const Login = () => {
                         <label className="label">
                             <span className="label-text">Email</span>
                         </label>
-                        <input type="email" placeholder="email" className="input input-bordered" required />
+                        <input type="email" name="email" placeholder="email" className="input input-bordered" required />
                         </div>
                         <div className="form-control relative">
                                 <label className="label">

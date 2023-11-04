@@ -60,11 +60,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    {/* <div>
-                        <Link>
-                        <button className="btn btn-outline text-orange-500 hover:bg-orange-500 hover:border-none ">Appointment</button>
-                        </Link>
-                    </div> */}
+                    
                     <div className="">
                         {user?.email?
                             <div className="dropdown dropdown-end">
@@ -77,7 +73,7 @@ const Navbar = () => {
                                 
                                 <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
                                     <li>
-                                        <button className="btn btn-sm  btn-ghost">{user}</button>
+                                        <button className="btn btn-sm  btn-ghost">{user.displayName}</button>
 
                                     </li>
                                     <li>
