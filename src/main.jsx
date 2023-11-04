@@ -9,6 +9,9 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Home from './Pages/Home';
+import AuthProvider from './Context/AuthProvider';
+import Login from './Pages/Login';
+import SignUp from './Pages/SignUp';
 
 const router = createBrowserRouter([
   {
@@ -18,13 +21,23 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>
-      }
+      },
+      {
+        path: "/signUp",
+        element: <SignUp></SignUp>
+      },
+      {
+        path: "/login",
+        element: <Login></Login>
+      },
     ]
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </React.StrictMode>,
 )
