@@ -3,6 +3,7 @@ import { FaEyeSlash, FaEye } from 'react-icons/fa';
 import { useContext, useState } from "react";
 import { AuthContext } from "../Context/AuthProvider";
 import toast from "react-hot-toast";
+import Navbar from "../Components/Navbar";
 
 const SignUp = () => {
     const {createUser, updateUserProfile } = useContext(AuthContext)
@@ -32,6 +33,7 @@ const SignUp = () => {
     }
     return (
         <div>
+            <Navbar></Navbar>
             <div className="hero min-h-screen bg-base-200">
                 <div className="hero-content flex-col lg:flex-row-reverse">
                     <div className="text-center lg:text-left">
@@ -73,7 +75,7 @@ const SignUp = () => {
                         <input type="submit" value="Sign Up" className="btn btn-success"/>
                         </div>
                             <label className="label text-[#00917c]">
-                            Have an account? <Link to="/login" className="label-text-alt link link-hover text-[#00917c]">Login</Link>
+                            Have an account? <Link to="/login" className="label-text-alt link link-hover font-bold text-[#00917c]">Login</Link>
                             </label>
                     </form>
                         

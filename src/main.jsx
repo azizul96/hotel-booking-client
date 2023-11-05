@@ -12,6 +12,8 @@ import Home from './Pages/Home';
 import AuthProvider from './Context/AuthProvider';
 import Login from './Pages/Login';
 import SignUp from './Pages/SignUp';
+import Rooms from './Pages/Rooms';
+import Contact from './Pages/Contact';
 
 const router = createBrowserRouter([
   {
@@ -20,7 +22,17 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home></Home>
+        element: <Home></Home>,
+        loader: ()=> fetch('http://localhost:5000/rooms')
+      },
+      {
+        path: "/rooms",
+        element: <Rooms></Rooms>,
+        loader: ()=> fetch('http://localhost:5000/rooms')
+      },
+      {
+        path: "/Contact",
+        element: <Contact></Contact>
       },
       {
         path: "/signUp",

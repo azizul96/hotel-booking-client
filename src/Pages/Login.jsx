@@ -69,7 +69,7 @@ const Login = () => {
                         <input type="submit" value="Login" className="btn btn-success"/>
                         </div>
                             <label className="label text-[#00917c]">
-                                New here? <Link to="/signUp" className="label-text-alt link link-hover text-[#00917c]">Create an account</Link>
+                                New here? <Link to="/signUp" className="label-text-alt link link-hover font-bold text-[#00917c]">Sign Up</Link>
                             </label>
                     </form>
                         <div className="mb-5">
