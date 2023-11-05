@@ -1,9 +1,12 @@
 import { useLoaderData } from "react-router-dom";
 import Navbar from "../Components/Navbar";
 import RoomCard from "../Components/RoomCard";
+import { useState } from "react";
 
 const Rooms = () => {
     const allRooms = useLoaderData()
+    const [price, setPrice] = useState('')
+    console.log(price);
     return (
         <div className="container mx-auto px-3">
             <div>
@@ -15,10 +18,11 @@ const Rooms = () => {
                         <h1 className="text-xl font-semibold text-[#00917c]">Available Rooms</h1>
                     </div>
                     <div className="form-control">
-                        <select className="select select-info w-full max-w-xs">
+                        <select className="select select-info w-full max-w-xs"
+                        onChange={(e)=> setPrice(e.target.value)}>
                             <option disabled selected>Price Range</option>
-                            <option>High To Low</option>
-                            <option>Low To High</option>
+                            <option value="desc">High To Low</option>
+                            <option value="asc">Low To High</option>
                         </select> 
                     </div>
                 </div>

@@ -14,6 +14,7 @@ import Login from './Pages/Login';
 import SignUp from './Pages/SignUp';
 import Rooms from './Pages/Rooms';
 import Contact from './Pages/Contact';
+import RoomDetails from './Pages/RoomDetails';
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,11 @@ const router = createBrowserRouter([
       {
         path: "/rooms",
         element: <Rooms></Rooms>,
+        loader: ()=> fetch('http://localhost:5000/rooms')
+      },
+      {
+        path: "/room-details/:id",
+        element: <RoomDetails></RoomDetails>,
         loader: ()=> fetch('http://localhost:5000/rooms')
       },
       {
