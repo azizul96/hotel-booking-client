@@ -1,16 +1,19 @@
 /* eslint-disable react/prop-types */
+import { useState } from "react";
 import Swal from "sweetalert2";
 
 const DetailsCard = ({room}) => {
-    const {booking_date, room_image, room_name, description,availableSeats, room_size, price, offer} = room
+    const {room_image, room_name, description,availableSeats, room_size, price, offer} = room
+    const [date, setDate] = useState('')
+    console.log(date);
 
     const handleBooked =()=>{
-        const roomInfo = {room_image, room_name, description,availableSeats, room_size, price, offer}
+        const roomInfo = {date, room_image, room_name, description,availableSeats, room_size, price, offer}
 
         const url = `http://localhost:5000/bookings`
         Swal.fire({
             title: "Are you sure?",
-            text: `Price: $${price} Date:${booking_date}`,
+            text: `Price: $${price} Date:${date}`,
             icon: "warning",
             showCancelButton: true,
             confirmButtonColor: "#3085d6",
@@ -70,6 +73,10 @@ const DetailsCard = ({room}) => {
                     <div className="flex items-center mt-4 text-gray-700 dark:text-gray-200">
                         <p>Size:</p>
                         <h1 className="px-2 font-semibold">{room_size} Sq. Ft.</h1>
+                    </div>
+                    <div className="text-center mt-4 text-gray-700 dark:text-gray-200">
+                        <p className="font-semibold">Select Date</p>
+                        <input onChange={(e)=> setDate(e.target.value)} type="date" name="" id="" className="cursor-pointer border-2 p-2 rounded-md" />
                     </div>
                 </div>
                 <div className="text-center">
