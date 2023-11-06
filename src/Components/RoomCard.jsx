@@ -9,8 +9,7 @@ const RoomCard = ({room}) => {
         <Link to={`/room-details/${_id}`}>
             <div>
                 <div className="flex flex-col items-center justify-center w-full max-w-sm mx-auto">
-                    <div className="w-full h-auto bg-gray-300 bg-center bg-cover rounded-lg shadow-md">
-                        <img className="object-cover rounded-lg" src={room_image} alt="" />
+                    <div className="w-full h-64 bg-gray-300 bg-center bg-cover rounded-lg shadow-md" style={{backgroundImage: `url(${room_image})`}}>
                     </div>
 
                     <div className="w-56 -mt-10 overflow-hidden bg-white rounded-lg shadow-lg md:w-64 dark:bg-gray-800 ">

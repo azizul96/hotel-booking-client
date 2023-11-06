@@ -16,6 +16,8 @@ import Rooms from './Pages/Rooms';
 import Contact from './Pages/Contact';
 import RoomDetails from './Pages/RoomDetails';
 import MyBooking from './Pages/MyBooking';
+import PrivateRoute from './Private/PrivateRoute';
+import { Toaster } from 'react-hot-toast';
 
 const router = createBrowserRouter([
   {
@@ -39,7 +41,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/myBookings",
-        element: <MyBooking></MyBooking>,
+        element: <PrivateRoute><MyBooking></MyBooking></PrivateRoute>,
         
       },
       {
@@ -64,5 +66,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <AuthProvider>
       <RouterProvider router={router} />
     </AuthProvider>
+    <Toaster/>
   </React.StrictMode>,
 )

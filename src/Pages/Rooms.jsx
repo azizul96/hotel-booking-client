@@ -7,6 +7,12 @@ const Rooms = () => {
     const allRooms = useLoaderData()
     const [price, setPrice] = useState('')
     console.log(price);
+    if(price === "desc"){
+        allRooms.sort((a,b)=>b.price-a.price)
+    }
+    else if(price === "asc"){
+        allRooms.sort((a,b)=>a.price-b.price)
+    }
     return (
         <div className="container mx-auto px-3">
             <div>

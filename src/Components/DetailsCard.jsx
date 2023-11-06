@@ -1,14 +1,18 @@
 /* eslint-disable react/prop-types */
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Swal from "sweetalert2";
+import { AuthContext } from "../Context/AuthProvider";
+
+
 
 const DetailsCard = ({room}) => {
+    const {user} = useContext(AuthContext)
     const {room_image, room_name, description,availableSeats, room_size, price, offer} = room
     const [date, setDate] = useState('')
-    console.log(date);
+    
 
     const handleBooked =()=>{
-        const roomInfo = {date, room_image, room_name, description,availableSeats, room_size, price, offer}
+        const roomInfo = {email: user.email, date, room_image, room_name, description,availableSeats, room_size, price, offer}
 
         const url = `http://localhost:5000/bookings`
         Swal.fire({
@@ -38,7 +42,7 @@ const DetailsCard = ({room}) => {
                                 text: "Your room has been booked.",
                                 icon: "success"
                               })
-                        )   
+                        ) 
                     }
                 })
             }
@@ -77,6 +81,7 @@ const DetailsCard = ({room}) => {
                     <div className="text-center mt-4 text-gray-700 dark:text-gray-200">
                         <p className="font-semibold">Select Date</p>
                         <input onChange={(e)=> setDate(e.target.value)} type="date" name="" id="" className="cursor-pointer border-2 p-2 rounded-md" />
+                        
                     </div>
                 </div>
                 <div className="text-center">

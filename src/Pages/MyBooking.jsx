@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Context/AuthProvider";
@@ -10,18 +11,19 @@ import Navbar from "../Components/Navbar";
 const MyBooking = () => {
     const { user } = useContext(AuthContext);
     const [bookings, setBookings] = useState([]);
-
-    const url = `http://localhost:5000/bookings?email=${user?.email}`;
-    // console.log(bookingData);
+    
+    const URL = `http://localhost:5000/bookings?email=${user?.email}`;
+    
     useEffect(() => {
 
-        axios.get(url, {withCredentials:true})
+        axios.get(URL, {withCredentials: true})
         .then(res => {
+            // console.log(res.data);
           setBookings(res.data)
         })
         
-      }, [url]);
-
+      }, []);
+      console.log(bookings);
     const handleDelete = id => {
         Swal.fire({
             title: 'Are you sure?',
@@ -56,18 +58,22 @@ const MyBooking = () => {
 
 
     return (
-        <div className="my-10 container mx-auto">
+        <div className="mb-10 container mx-auto">
             <div>
                 <Navbar></Navbar>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                {bookings.map(booking => 
-                    <BookingRow
-                    key={booking._id}
-                    booking={booking}
-                    handleDelete={handleDelete}
-                    ></BookingRow>
-                )}
+            <div>
+                <h1 className="text-[#00917c] text-2xl font-bold my-5">All Bookings {bookings.length}</h1>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    
+                    {bookings.map(booking => 
+                        <BookingRow
+                        key={booking._id}
+                        booking={booking}
+                        handleDelete={handleDelete}
+                        ></BookingRow>
+                    )}
+                </div>
             </div>
         </div>
     );
