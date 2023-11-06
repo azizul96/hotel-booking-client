@@ -1,35 +1,48 @@
 /* eslint-disable react/prop-types */
-
 import Swal from "sweetalert2";
 
 const DetailsCard = ({room}) => {
-    const {room_image, room_name, description,availableSeats, room_size, price, offer} = room
+    const {booking_date, room_image, room_name, description,availableSeats, room_size, price, offer} = room
 
     const handleBooked =()=>{
         const roomInfo = {room_image, room_name, description,availableSeats, room_size, price, offer}
 
         const url = `http://localhost:5000/bookings`
-        fetch(url,{
-            method: 'POST',
-            headers:{
-                'content-type':'application/json'
-            },
-            body: JSON.stringify(roomInfo)
-        })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data);
-            if(data.insertedId){
-                return (
-                    Swal.fire({
-                        title: "The Internet?",
-                        text: "That thing is still around?",
-                        icon: "question"
-                      })
-                )   
+        Swal.fire({
+            title: "Are you sure?",
+            text: `Price: $${price} Date:${booking_date}`,
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, Book Now!"
+          }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(url,{
+                    method: 'POST',
+                    headers:{
+                        'content-type':'application/json'
+                    },
+                    body: JSON.stringify(roomInfo)
+                })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                    if(data.insertedId){
+                        return (
+                            Swal.fire({
+                                title: "Booked!",
+                                text: "Your room has been booked.",
+                                icon: "success"
+                              })
+                        )   
+                    }
+                })
             }
-        })
+          });
     }
+
+    
     return (
         <div className="mb-10"> 
             <div className="w-full  overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800 pb-5">
