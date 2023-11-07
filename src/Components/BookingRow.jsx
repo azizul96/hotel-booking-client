@@ -1,13 +1,10 @@
-/* eslint-disable react/prop-types */
-
-
-
 
 const BookingRow = ({booking, handleDelete }) => {
-    const {_id, room_image, room_name, price,date} = booking 
+    const {_id, room_image, room_name, price,date} = booking
 
+ 
     const handleReview = () =>{
-        
+      
     }
     return (
     

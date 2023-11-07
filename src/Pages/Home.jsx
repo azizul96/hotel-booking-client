@@ -2,9 +2,9 @@ import { Link, useLoaderData } from "react-router-dom";
 import Banner from "../Components/Banner";
 import Navbar from "../Components/Navbar";
 import Newsletter from "../Components/Newsletter";
-import Testimonials from "../Components/Testimonials";
 import Featured from "../Components/Featured";
 import Marquee from "react-fast-marquee";
+import Map from "../Components/Map";
 
 const Home = () => {
     const loadeddata = useLoaderData()
@@ -32,7 +32,7 @@ const Home = () => {
                 </div>
             </div>
             <div>
-                <Testimonials></Testimonials>
+                <Map></Map>
             </div>
             <div>
                 <Newsletter></Newsletter>

@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import { useContext, useState } from "react";
 import Swal from "sweetalert2";
 import { AuthContext } from "../Context/AuthProvider";
