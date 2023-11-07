@@ -22,7 +22,8 @@ const MyBooking = () => {
         })
         
       }, []);
-      console.log(bookings);
+    //   console.log(bookings);
+
     const handleDelete = id => {
         Swal.fire({
             title: 'Are you sure?',

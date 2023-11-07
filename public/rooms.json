@@ -9,7 +9,8 @@
       "availableSeats": 5,
       "room_size": 250,
       "rating": 4,
-      "offer": "10% off for a 3-night stay"
+      "offer": "10% off for a 3-night stay",
+      "r_id": 1
     },
     {
       "room_name": "Deluxe Double Room",
@@ -21,7 +22,8 @@
       "availableSeats": 8,
       "room_size": 400,
       "rating": 4,
-      "offer": "Free breakfast included"
+      "offer": "Free breakfast included",
+      "r_id": 2
     },
     {
       "room_name": "Family Suite",
@@ -33,7 +35,8 @@
       "availableSeats": 4,
       "room_size": 600,
       "rating": 4,
-      "offer": "50% off for children under 12"
+      "offer": "50% off for children under 12",
+      "r_id": 3
     },
     {
       "room_name": "Luxury Ocean View Suite",
@@ -45,7 +48,8 @@
       "availableSeats": 1,
       "room_size": "800 sq. ft.",
       "rating": 5,
-      "offer": "Complimentary spa access"
+      "offer": "Complimentary spa access",
+      "r_id": 4
     },
     {
       "room_name": "Presidential Suite",
@@ -57,7 +61,8 @@
       "availableSeats": 2,
       "room_size": 1200,
       "rating": 5,
-      "offer": "Bottle of champagne on arrival"
+      "offer": "Bottle of champagne on arrival",
+      "r_id": 5
     },
     {
       "room_name": "Executive Suite",
@@ -69,6 +74,7 @@
       "availableSeats": 6,
       "room_size": 700,
       "rating": 4,
-      "offer": "Complimentary airport transfer"
+      "offer": "Complimentary airport transfer",
+      "r_id": 6
     }
   ]

@@ -7,12 +7,12 @@ import { AiFillHome } from 'react-icons/ai';
 
 const DetailsCard = ({room}) => {
     const {user} = useContext(AuthContext)
-    const {room_image, room_name, description,availableSeats, room_size, price, offer} = room
+    const {room_image, room_name, description,availableSeats, room_size, price, offer, rating, r_id,} = room
     const [date, setDate] = useState('')
     
 
     const handleBooked =()=>{
-        const roomInfo = {email: user.email, date, room_image, room_name, description,availableSeats, room_size, price, offer}
+        const roomInfo = {email: user.email, date, room_image, room_name, availableSeats, room_size, price, offer, rating, r_id}
 
         const url = `http://localhost:5000/bookings`
         Swal.fire({
@@ -48,15 +48,15 @@ const DetailsCard = ({room}) => {
             }
           });
     }
-
-    
     return (
         <div className="mb-10 mt-5"> 
-            <div className="w-full  overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800 pb-5">
-                <img className="object-cover object-center w-full h-56 md:h-96" src={room_image} alt="avatar"/>
+            <div className="w-full lg:flex  lg:gap-10  overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800 ">
+                <div className=" ">
+                    <img className="object-cover object-center w-full h-56  md:h-96" src={room_image} alt="avatar"/>
 
-                <div className="flex items-center px-6 py-3 bg-gray-900">
-                    <h1 className="mx-3 text-lg font-semibold text-white">{room_name}</h1>
+                    <div className="flex items-center px-6 py-3 bg-gray-900">
+                        <h1 className="mx-3 text-lg font-semibold text-white">{room_name}</h1>
+                    </div>
                 </div>
 
                 <div className="px-6 py-4">
@@ -83,13 +83,14 @@ const DetailsCard = ({room}) => {
                     </div>
                     <div className="text-center mt-4 text-gray-700 dark:text-gray-200">
                         <p className="font-semibold">Select Date</p>
-                        <input onChange={(e)=> setDate(e.target.value)} type="date" name="" id="" className="cursor-pointer border-2 p-2 rounded-md" />
+                        <input onChange={(e)=> setDate(e.target.value)} type="date" name="" id="" className="cursor-pointer border-2 p-2 rounded-md" required/>
                         
                     </div>
+                    <div className="text-center">
+                        <button onClick={handleBooked} className='my-5 px-5 py-3 rounded-full shadow-lg font-semibold bg-[#00917c] text-white'>Book Now</button>
+                    </div>
                 </div>
-                <div className="text-center">
-                    <button onClick={handleBooked} className='mt-5 px-5 py-3 rounded-full shadow-lg font-semibold bg-[#00917c] text-white'>Book Now</button>
-                </div>
+                
             </div>
         </div>
     );

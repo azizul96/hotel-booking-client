@@ -37,7 +37,7 @@ const SignUp = () => {
             <div className="hero min-h-screen bg-base-200">
                 <div className="hero-content flex-col lg:flex-row-reverse">
                     <div className="text-center lg:text-left">
-                    <h1 className="text-5xl font-bold">Login now!</h1>
+                    <h1 className="text-5xl font-bold">Sign Up now!</h1>
                     
                     </div>
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
@@ -72,7 +72,7 @@ const SignUp = () => {
                                 </span>
                         </div>
                         <div className="form-control mt-6">
-                        <input type="submit" value="Sign Up" className="btn btn-success"/>
+                        <input type="submit" value="Sign Up" className="btn btn-success bg-[#00917c] text-white"/>
                         </div>
                             <label className="label text-[#00917c]">
                             Have an account? <Link to="/login" className="label-text-alt link link-hover font-bold text-[#00917c]">Login</Link>

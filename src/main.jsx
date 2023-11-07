@@ -19,6 +19,7 @@ import MyBooking from './Pages/MyBooking';
 import PrivateRoute from './Private/PrivateRoute';
 import { Toaster } from 'react-hot-toast';
 import Error from './Pages/Error';
+import AddReview from './Components/AddReview';
 
 const router = createBrowserRouter([
   {
@@ -57,6 +58,10 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login></Login>
+      },
+      {
+        path: "/addReview",
+        element: <AddReview></AddReview>
       },
       
     ]

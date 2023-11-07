@@ -66,7 +66,7 @@ const Login = () => {
                                 </span>
                         </div>
                         <div className="form-control mt-6">
-                        <input type="submit" value="Login" className="btn btn-success"/>
+                        <input type="submit" value="Login" className="btn btn-success bg-[#00917c] text-white"/>
                         </div>
                             <label className="label text-[#00917c]">
                                 New here? <Link to="/signUp" className="label-text-alt link link-hover font-bold text-[#00917c]">Sign Up</Link>
