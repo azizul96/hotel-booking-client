@@ -2,6 +2,9 @@ import { useEffect, useState } from "react";
 import { useLoaderData, useParams } from "react-router-dom";
 import DetailsCard from "../Components/DetailsCard";
 import Navbar from "../Components/Navbar";
+import Reviews from "../Components/Reviews";
+
+
 
 const RoomDetails = () => {
     const {id} = useParams()
@@ -20,6 +23,9 @@ const RoomDetails = () => {
             <Navbar></Navbar>
             <div className="container mx-auto px-3">
                 <DetailsCard room={room}></DetailsCard>
+            </div>
+            <div>
+                <Reviews></Reviews>
             </div>
         </div>
     );

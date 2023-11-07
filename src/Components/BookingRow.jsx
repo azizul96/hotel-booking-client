@@ -1,8 +1,14 @@
 /* eslint-disable react/prop-types */
 
 
+
+
 const BookingRow = ({booking, handleDelete }) => {
     const {_id, room_image, room_name, price,date} = booking 
+
+    const handleReview = () =>{
+        
+    }
     return (
     
         <div className="flex  overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800">
@@ -15,7 +21,7 @@ const BookingRow = ({booking, handleDelete }) => {
 
                 <p className="mt-2 text-sm font-semibold text-gray-600 dark:text-gray-400">Per Night: ${price}</p>
                 <p className="mt-2 text-sm font-semibold text-gray-600 dark:text-gray-400">Date: {date}</p>
-                <button className="mt-2 px-2 py-1 text-xs font-bold text-white uppercase transition-colors duration-300 transform bg-purple-500 rounded-md focus:outline-none">Write Review</button>
+                <button onClick={handleReview} className="mt-2 px-2 py-1 text-xs font-bold text-white uppercase transition-colors duration-300 transform bg-purple-500 rounded-md focus:outline-none">Write Review</button>
 
                 <div className="flex justify-between mt-3 item-center">
                     <button className="px-2 py-1 text-xs font-bold text-white uppercase transition-colors duration-300 transform bg-[#00917c] rounded-md focus:outline-none">Update Date</button>

@@ -18,11 +18,13 @@ import RoomDetails from './Pages/RoomDetails';
 import MyBooking from './Pages/MyBooking';
 import PrivateRoute from './Private/PrivateRoute';
 import { Toaster } from 'react-hot-toast';
+import Error from './Pages/Error';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Outlet></Outlet>,
+    errorElement:<Error></Error>,
     children: [
       {
         path: "/",

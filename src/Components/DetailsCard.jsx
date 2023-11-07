@@ -2,7 +2,8 @@
 import { useContext, useState } from "react";
 import Swal from "sweetalert2";
 import { AuthContext } from "../Context/AuthProvider";
-
+import { FaFileInvoiceDollar, FaBed, } from 'react-icons/fa';
+import { AiFillHome } from 'react-icons/ai';
 
 
 const DetailsCard = ({room}) => {
@@ -51,7 +52,7 @@ const DetailsCard = ({room}) => {
 
     
     return (
-        <div className="mb-10"> 
+        <div className="mb-10 mt-5"> 
             <div className="w-full  overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800 pb-5">
                 <img className="object-cover object-center w-full h-56 md:h-96" src={room_image} alt="avatar"/>
 
@@ -65,17 +66,20 @@ const DetailsCard = ({room}) => {
                     <p className="py-2 text-gray-700 dark:text-gray-400">{description}</p>
 
                     <div className="flex items-center mt-4 text-gray-700 dark:text-gray-200">
-                        <p>Price:</p>
+                        <span className="text-lg"><FaFileInvoiceDollar></FaFileInvoiceDollar></span>
+                        <p className="ml-2">Price:</p>
                         <h1 className="px-2 font-semibold">${price}</h1>
                     </div>
 
                     <div className="flex items-center mt-4 text-gray-700 dark:text-gray-200">
-                        <p>Availability:</p>
+                        <span className="text-lg"><FaBed></FaBed></span>
+                        <p className="ml-2">Availability:</p>
                         <h1 className="px-2 font-semibold">{availableSeats}</h1>
                     </div>
 
                     <div className="flex items-center mt-4 text-gray-700 dark:text-gray-200">
-                        <p>Size:</p>
+                        <span className="text-lg"><AiFillHome></AiFillHome></span>
+                        <p className="ml-2">Size:</p>
                         <h1 className="px-2 font-semibold">{room_size} Sq. Ft.</h1>
                     </div>
                     <div className="text-center mt-4 text-gray-700 dark:text-gray-200">
