@@ -2,17 +2,44 @@ import { useContext, useState } from "react";
 import Swal from "sweetalert2";
 import { AuthContext } from "../Context/AuthProvider";
 import { FaFileInvoiceDollar, FaBed, } from 'react-icons/fa';
-import { AiFillHome } from 'react-icons/ai';
-
+import { AiFillHome, AiFillPlusCircle } from 'react-icons/ai';
+import { AiFillMinusCircle } from 'react-icons/ai';
 
 const DetailsCard = ({room}) => {
     const {user} = useContext(AuthContext)
-    const {room_image, room_name, description,availableSeats, room_size, price, offer, rating, r_id,} = room
+    const {_id, room_image, room_name, description,availableSeats, room_size, price, offer, rating, r_id,} = room
     const [date, setDate] = useState('')
+
+    
+
+    const [count, setCount] = useState(0)
+    const [a_room, seta_room] = useState()
+
+    const add =() =>{
+        const addCount=count+1;       
+        setCount(addCount)  
+        const RoomCount = availableSeats-count;
+        const Room_count = RoomCount-1
+        seta_room(Room_count);
+              
+    }
+  
+    
+    const remove =() =>{
+        if(count!=0){
+            const addCount=count-1;           
+            setCount(addCount)
+            const RoomCount = a_room+1;        
+        seta_room(RoomCount);
+          
+          
+        }
+        
+    }
     
 
     const handleBooked =()=>{
-        const roomInfo = {email: user.email, date, room_image, room_name, availableSeats, room_size, price, offer, rating, r_id}
+        const roomInfo = {email: user.email, date, room_image, room_name, availableSeats, room_size, price, offer, rating, r_id,}
         const url = `http://localhost:5000/bookings`
         Swal.fire({
             title: "Are you sure?",
@@ -33,19 +60,39 @@ const DetailsCard = ({room}) => {
                 })
                 .then(res => res.json())
                 .then(data => {
+
                     console.log(data);
+                    updateSeat()
                     if(data.insertedId){
                         return (
                             Swal.fire({
                                 title: "Booked!",
                                 text: "Your room has been booked.",
                                 icon: "success"
-                              })
+
+                              }) 
                         ) 
+                        
                     }
                 })
             }
           });
+    }
+    const updateSeat = ()=>{
+        const seatInfo = {id: _id, a_room}
+        
+        fetch(`http://localhost:5000/rooms/${_id}`,{
+            method: 'PATCH',
+            headers:{
+                'content-type':'application/json'
+            },
+            body: JSON.stringify(seatInfo)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+        })
+              
     }
     return (
         <div className="mb-10 mt-5"> 
@@ -81,9 +128,17 @@ const DetailsCard = ({room}) => {
                         <h1 className="px-2 font-semibold">{room_size} Sq. Ft.</h1>
                     </div>
                     <div className="text-center mt-4 text-gray-700 dark:text-gray-200">
-                        <p className="font-semibold">Select Date</p>
-                        <input onChange={(e)=> setDate(e.target.value)} type="date" name="" id="" className="cursor-pointer border-2 p-2 rounded-md" required/>
-                        
+                        <div>
+                            <p className="font-semibold">Select Date</p>
+                            <input onChange={(e)=> setDate(e.target.value)} type="date" name="" id="" className="cursor-pointer border-2 p-2 rounded-md" required/>
+                        </div>
+                        <p className="font-semibold mt-5">Select Seat</p>
+                        <div className='flex justify-center items-center'>
+                            
+                            <span onClick={remove} className='text-xl'><AiFillMinusCircle></AiFillMinusCircle></span>
+                            <input type="number" onChange={(e)=> seta_room(e.target.value)} value={count} className='border-2 p-2 rounded-md text-blue-500' />
+                            <span onClick={add} className='text-xl'><AiFillPlusCircle></AiFillPlusCircle></span>
+                        </div>
                     </div>
                     <div className="text-center">
                         <button onClick={handleBooked} className='my-5 px-5 py-3 rounded-full shadow-lg font-semibold bg-[#00917c] text-white'>Book Now</button>

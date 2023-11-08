@@ -6,6 +6,7 @@ import { Helmet } from "react-helmet-async";
 
 const Rooms = () => {
     const allRooms = useLoaderData()
+    
     const [price, setPrice] = useState('')
     console.log(price);
     if(price === "desc"){

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 
 const BookingRow = ({booking, handleDelete }) => {
-    const {_id, room_image, room_name, price,date} = booking
+    const {_id, room_image, room_name, price,date, r_id} = booking
 
     return (
     
@@ -16,7 +16,7 @@ const BookingRow = ({booking, handleDelete }) => {
 
                 <p className="mt-2 text-sm font-semibold text-gray-600 dark:text-gray-400">Per Night: ${price}</p>
                 <p className="mt-2 text-sm font-semibold text-gray-600 dark:text-gray-400">Date: {date}</p>
-                <Link to="/addReview">
+                <Link to={`/addReview/${r_id}`}>
                     <button  className="mt-2 px-2 py-1 text-xs font-bold text-white uppercase transition-colors duration-300 transform bg-purple-500 rounded-md focus:outline-none">Write Review</button>
                 </Link>
 
@@ -26,9 +26,8 @@ const BookingRow = ({booking, handleDelete }) => {
                     </Link>
                     <button onClick={()=> handleDelete(_id)} className="px-3 py-1 text-xs font-bold text-white uppercase transition-colors duration-300 transform bg-red-500 rounded-md focus:outline-none">Delete</button>
                 </div>
-                
+  
             </div>
-            
         </div>
     );
 };

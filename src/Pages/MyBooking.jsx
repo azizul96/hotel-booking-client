@@ -9,9 +9,11 @@ import { Helmet } from "react-helmet-async";
 
 
 
-const MyBooking = () => {
+const MyBooking = (date) => {
     const { user } = useContext(AuthContext);
     const [bookings, setBookings] = useState([]);
+
+    console.log(date);
     
     const URL = `http://localhost:5000/bookings?email=${user?.email}`;
     
@@ -25,6 +27,36 @@ const MyBooking = () => {
         
       }, []);
     //   console.log(bookings);
+    // const clanderday = (id) => {
+  
+    //     console.log(id);
+   
+            
+    //         const filterdata = Room?.find((data) =>data.id ==id)
+            
+      
+          
+    //     const d1 = filterdata.currentDate
+    //     const d2 = filterdata.Cheack_in_date
+    //     let date1 = new Date(d1);
+    //     let date2 = new Date(d2);
+    //     const time = Math.abs(date1-date2);
+    //     const days = Math.ceil(time/(1000*60*60*24));
+    //     console.log(days);
+
+    //     if(days<1){
+    //         Swal.fire(
+    //             'Sorry',
+    //             `you can't cencle the reservation`,
+    //             'error'
+    //         )
+    //     }
+    //     else{
+    //        const id=filterdata._id
+    //        console.log(id);
+    //         DeleteHandler(id)
+    //     }
+    //  }
 
     const handleDelete = id => {
         // const validCancelDate = moment(bookings.date).subtract(1, 'days'._d)

@@ -29,7 +29,6 @@ const RoomDetails = () => {
                 <DetailsCard room={room}></DetailsCard>
             </div>
             <div className="my-10 container mx-auto px-3">
-                <h1 className="text-[#00917c] text-2xl font-bold mb-5">Reviews</h1>
                 <div>
                     <Reviews></Reviews>
                 </div>

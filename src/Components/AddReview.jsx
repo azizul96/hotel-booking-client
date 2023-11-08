@@ -6,7 +6,7 @@ import { Helmet } from "react-helmet-async";
 
 const AddReview = () => {
     const {user} = useContext(AuthContext)
-
+    
     const handleReviewSubmit = e =>{
         e.preventDefault()
         const form = e.target
@@ -16,7 +16,7 @@ const AddReview = () => {
         const date = form.date.value
 
         
-        const reviewInfo = {email: user.email, name, rating, comment, date}
+        const reviewInfo = {email: user.email, name, rating, comment, date,}
         console.log(reviewInfo);
         fetch('http://localhost:5000/reviews',{
             method: 'POST',
