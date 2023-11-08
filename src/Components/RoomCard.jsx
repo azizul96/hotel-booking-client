@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 
 const RoomCard = ({room}) => {
-    const {_id, room_image, room_name,reviewsCount,price} = room
+    const {_id, room_image, room_name,price, availableSeats} = room
     return (
         <Link to={`/room-details/${_id}`}>
             <div>
@@ -17,7 +17,7 @@ const RoomCard = ({room}) => {
 
                         <div className="flex items-center justify-between px-3 py-2 bg-gray-200 dark:bg-gray-700">
                             <span className="font-bold text-gray-800 dark:text-gray-200">${price}</span>
-                            <button className="px-2 py-1 text-xs font-semibold text-white uppercase transition-colors duration-300 transform bg-[#00917c] rounded  focus:outline-none">{reviewsCount} Review</button>
+                            <button className="px-2 py-1 text-xs font-semibold text-white uppercase transition-colors duration-300 transform bg-[#00917c] rounded  focus:outline-none">{availableSeats}Available Seat</button>
                         </div>
                     </div>
                 </div>
