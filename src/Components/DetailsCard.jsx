@@ -4,10 +4,12 @@ import { AuthContext } from "../Context/AuthProvider";
 import { FaFileInvoiceDollar, FaBed, } from 'react-icons/fa';
 import { AiFillHome, AiFillPlusCircle } from 'react-icons/ai';
 import { AiFillMinusCircle } from 'react-icons/ai';
+import { useNavigate } from "react-router-dom";
 
 const DetailsCard = ({room}) => {
     const {user} = useContext(AuthContext)
     const {_id, room_image, room_name, description,availableSeats, room_size, price, offer, rating, r_id,} = room
+    const navigate = useNavigate(null)
     const [date, setDate] = useState('')
 
     
@@ -40,7 +42,7 @@ const DetailsCard = ({room}) => {
 
     const handleBooked =()=>{
         const roomInfo = {email: user.email, date, room_image, room_name, availableSeats, room_size, price, offer, rating, r_id,}
-        const url = `http://localhost:5000/bookings`
+        const url = `https://hotel-booking-server-mu.vercel.app/bookings`
         Swal.fire({
             title: "Are you sure?",
             text: `Price: $${price} Date:${date}`,
@@ -63,6 +65,7 @@ const DetailsCard = ({room}) => {
 
                     console.log(data);
                     updateSeat()
+
                     if(data.insertedId){
                         return (
                             Swal.fire({
@@ -75,13 +78,14 @@ const DetailsCard = ({room}) => {
                         
                     }
                 })
+                navigate('/myBookings')
             }
           });
     }
     const updateSeat = ()=>{
         const seatInfo = {id: _id, a_room}
         
-        fetch(`http://localhost:5000/rooms/${_id}`,{
+        fetch(`https://hotel-booking-server-mu.vercel.app/rooms/${_id}`,{
             method: 'PATCH',
             headers:{
                 'content-type':'application/json'
@@ -118,7 +122,7 @@ const DetailsCard = ({room}) => {
 
                     <div className="flex items-center mt-4 text-gray-700 dark:text-gray-200">
                         <span className="text-lg"><FaBed></FaBed></span>
-                        <p className="ml-2">Availability:</p>
+                        <p className="ml-2">Available Seat:</p>
                         <h1 className="px-2 font-semibold">{availableSeats}</h1>
                     </div>
 

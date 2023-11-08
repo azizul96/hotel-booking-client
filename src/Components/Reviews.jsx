@@ -6,7 +6,7 @@ const Reviews = () => {
     const [allReviews, setAllReviews] = useState([])
 
 
-    const URL = `http://localhost:5000/reviews`
+    const URL = `https://hotel-booking-server-mu.vercel.app/reviews`
     useEffect(() => {
 
         axios.get(URL, {withCredentials: true})

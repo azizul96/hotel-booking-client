@@ -14,7 +14,7 @@ const UpdateDate = () => {
         const date = form.date.value
         
         const dateInfo = {id, date}
-        fetch(`http://localhost:5000/bookings/${id}`,{
+        fetch(`https://hotel-booking-server-mu.vercel.app/bookings/${id}`,{
             method: 'PATCH',
             headers:{
                 'content-type':'application/json'

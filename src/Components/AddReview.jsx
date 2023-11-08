@@ -18,7 +18,7 @@ const AddReview = () => {
         
         const reviewInfo = {email: user.email, name, rating, comment, date,}
         console.log(reviewInfo);
-        fetch('http://localhost:5000/reviews',{
+        fetch('https://hotel-booking-server-mu.vercel.app/reviews',{
             method: 'POST',
             headers:{
                 'content-type':'application/json'

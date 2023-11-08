@@ -9,13 +9,13 @@ import { Helmet } from "react-helmet-async";
 
 
 
-const MyBooking = (date) => {
+const MyBooking = () => {
     const { user } = useContext(AuthContext);
     const [bookings, setBookings] = useState([]);
 
-    console.log(date);
+   
     
-    const URL = `http://localhost:5000/bookings?email=${user?.email}`;
+    const URL = `https://hotel-booking-server-mu.vercel.app/bookings?email=${user?.email}`;
     
     useEffect(() => {
 
@@ -71,7 +71,7 @@ const MyBooking = (date) => {
             confirmButtonText: 'Yes, delete it!'
           }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/bookings/${id}`,{
+                fetch(`https://hotel-booking-server-mu.vercel.app/bookings/${id}`,{
                     method: 'DELETE'
                 })
                 .then(res => res.json())
