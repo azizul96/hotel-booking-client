@@ -6,18 +6,26 @@ import Featured from "../Components/Featured";
 import Marquee from "react-fast-marquee";
 import Map from "../Components/Map";
 import { Helmet } from "react-helmet-async";
+import { useEffect } from "react";
+import Aos from "aos";
 
 const Home = () => {
     const loadeddata = useLoaderData()
+
+
+    useEffect(()=>{
+        Aos.init()
+        Aos.refresh();
+    },[])
     return (
         <div className=" container mx-auto px-3 mb-10">
             <Helmet>
                 <title>Home</title>
             </Helmet>
-            <div>
+            <div >
                 <Navbar></Navbar>
             </div>
-            <div>
+            <div >
                 <Banner></Banner>
             </div>
             <div className="py-5">
@@ -29,13 +37,13 @@ const Home = () => {
                     }
                 </div>
                 </Marquee>
-                <div className="text-center">
+                <div >
                     <Link to="/rooms">
                     <button className='mt-5 px-5 py-3 rounded-full shadow-lg font-semibold bg-[#00917c] text-white'>Book Now</button>
                     </Link>
                 </div>
             </div>
-            <div>
+            <div >
                 <Map></Map>
             </div>
             <div>

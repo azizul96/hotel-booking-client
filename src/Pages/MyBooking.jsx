@@ -59,6 +59,7 @@ const MyBooking = () => {
     //  }
 
     const handleDelete = id => {
+        
         // const validCancelDate = moment(bookings.date).subtract(1, 'days'._d)
 
         Swal.fire({
