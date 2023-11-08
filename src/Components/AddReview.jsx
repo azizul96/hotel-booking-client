@@ -2,6 +2,7 @@ import { useContext } from "react";
 import Navbar from "./Navbar";
 import { AuthContext } from "../Context/AuthProvider";
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet-async";
 
 const AddReview = () => {
     const {user} = useContext(AuthContext)
@@ -28,13 +29,16 @@ const AddReview = () => {
         .then(data => {
             console.log(data);
             if(data.insertedId){
-                return toast.success('Product added successfully');
+                return toast.success('Review added successfully');
                   
             }
         })
     }
     return (
-        <div className="container mx-auto">
+        <div className="container mx-auto px-3">
+            <Helmet>
+                <title>Add Review</title>
+            </Helmet>
             <Navbar></Navbar>
             <div className="p-3">
                 <div className=" p-6 mx-auto bg-green-200 rounded-md shadow-md dark:bg-gray-800">
@@ -72,7 +76,7 @@ const AddReview = () => {
                         </div>
 
                         <div className="flex justify-end mt-6">
-                            <input type="submit" value="Submit" className="px-8 py-2.5 leading-5 text-white transition-colors duration-300 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600"/>
+                            <input type="submit" value="Submit" className="px-8 py-2.5 leading-5 text-white transition-colors duration-300 transform bg-red-700 rounded-md hover:bg-red-600 focus:outline-none"/>
                         </div>
                     </form>
                 </div>

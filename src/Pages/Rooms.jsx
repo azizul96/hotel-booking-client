@@ -2,6 +2,7 @@ import { useLoaderData } from "react-router-dom";
 import Navbar from "../Components/Navbar";
 import RoomCard from "../Components/RoomCard";
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
 
 const Rooms = () => {
     const allRooms = useLoaderData()
@@ -15,6 +16,9 @@ const Rooms = () => {
     }
     return (
         <div className="container mx-auto px-3">
+            <Helmet>
+                <title>Rooms</title>
+            </Helmet>
             <div>
                 <Navbar></Navbar>
             </div>

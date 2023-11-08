@@ -5,6 +5,8 @@ import axios from "axios";
 import BookingRow from "../Components/BookingRow";
 import Swal from "sweetalert2";
 import Navbar from "../Components/Navbar";
+import { Helmet } from "react-helmet-async";
+
 
 
 const MyBooking = () => {
@@ -25,6 +27,8 @@ const MyBooking = () => {
     //   console.log(bookings);
 
     const handleDelete = id => {
+        // const validCancelDate = moment(bookings.date).subtract(1, 'days'._d)
+
         Swal.fire({
             title: 'Are you sure?',
             text: "You won't be able to revert this!",
@@ -59,6 +63,9 @@ const MyBooking = () => {
 
     return (
         <div className="mb-10 container mx-auto">
+            <Helmet>
+                <title>My Bookings</title>
+            </Helmet>
             <div>
                 <Navbar></Navbar>
             </div>

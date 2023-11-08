@@ -5,6 +5,7 @@ import { FcGoogle } from 'react-icons/fc';
 import { FaEyeSlash, FaEye } from 'react-icons/fa';
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Navbar from "../Components/Navbar";
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
     const {emailLogin, googleLogin} = useContext(AuthContext)
@@ -38,7 +39,10 @@ const Login = () => {
         })
     }
     return (
-        <div>
+        <div className="container mx-auto px-3">
+            <Helmet>
+                <title>Login</title>
+            </Helmet>
             <Navbar></Navbar>
             <div className="hero min-h-screen bg-base-200">
                 <div className="hero-content flex-col lg:flex-row-reverse">

@@ -13,7 +13,6 @@ const DetailsCard = ({room}) => {
 
     const handleBooked =()=>{
         const roomInfo = {email: user.email, date, room_image, room_name, availableSeats, room_size, price, offer, rating, r_id}
-
         const url = `http://localhost:5000/bookings`
         Swal.fire({
             title: "Are you sure?",

@@ -20,6 +20,8 @@ import PrivateRoute from './Private/PrivateRoute';
 import { Toaster } from 'react-hot-toast';
 import Error from './Pages/Error';
 import AddReview from './Components/AddReview';
+import UpdateDate from './Pages/UpdateDate';
+import { HelmetProvider } from 'react-helmet-async';
 
 const router = createBrowserRouter([
   {
@@ -63,6 +65,11 @@ const router = createBrowserRouter([
         path: "/addReview",
         element: <AddReview></AddReview>
       },
+      {
+        path: "/updateDate/:id",
+        element: <UpdateDate></UpdateDate>,
+        
+      },
       
     ]
   },
@@ -70,9 +77,11 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <AuthProvider>
-      <RouterProvider router={router} />
-    </AuthProvider>
-    <Toaster/>
+    <HelmetProvider>
+      <AuthProvider>
+        <RouterProvider router={router} />
+      </AuthProvider>
+      <Toaster/>
+    </HelmetProvider>
   </React.StrictMode>,
 )

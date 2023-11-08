@@ -5,11 +5,15 @@ import Newsletter from "../Components/Newsletter";
 import Featured from "../Components/Featured";
 import Marquee from "react-fast-marquee";
 import Map from "../Components/Map";
+import { Helmet } from "react-helmet-async";
 
 const Home = () => {
     const loadeddata = useLoaderData()
     return (
         <div className=" container mx-auto px-3 mb-10">
+            <Helmet>
+                <title>Home</title>
+            </Helmet>
             <div>
                 <Navbar></Navbar>
             </div>

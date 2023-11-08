@@ -1,9 +1,13 @@
+import { Helmet } from "react-helmet-async";
 import Navbar from "../Components/Navbar";
 import { MdEmail, MdLocationPin, MdPhoneInTalk } from "react-icons/md";
 
 const Contact = () => {
     return (
-        <div className=" container mx-auto mb-10">
+        <div className=" container mx-auto mb-10 px-3">
+            <Helmet>
+                <title>Contact</title>
+            </Helmet>
             <div>
                 <Navbar></Navbar>
             </div>

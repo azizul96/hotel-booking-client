@@ -4,6 +4,7 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../Context/AuthProvider";
 import toast from "react-hot-toast";
 import Navbar from "../Components/Navbar";
+import { Helmet } from "react-helmet-async";
 
 const SignUp = () => {
     const {createUser, updateUserProfile } = useContext(AuthContext)
@@ -32,7 +33,10 @@ const SignUp = () => {
         })
     }
     return (
-        <div>
+        <div className="container mx-auto px-3">
+            <Helmet>
+                <title>Sign Up</title>
+            </Helmet>
             <Navbar></Navbar>
             <div className="hero min-h-screen bg-base-200">
                 <div className="hero-content flex-col lg:flex-row-reverse">
