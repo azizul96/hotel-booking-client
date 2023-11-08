@@ -1,8 +1,13 @@
-# React + Vite
+# Project Features
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+✔ Hotel Booking is a single page application. On the home page you will see a Navbar, Banner,  featured rooms, A map and a Newsletter. 
 
-Currently, two official plugins are available:
+✔ there is some Rooms listed on the Rooms page, if you  click on any room image you will see the room details.  
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+✔ This website have a My booking page there is listed your bookings only you can see your bookings.
+
+✔ Every listed booking has a delete button, When you click on that button you will see a confirmation modal if you confirm to delete your booking has been deleted.
+
+✔ This website has jwt based authentication.
+
+✔ This website has email and password based authentication.
