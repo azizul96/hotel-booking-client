@@ -15,17 +15,17 @@ const Home = () => {
 
     useEffect(()=>{
         Aos.init()
-        Aos.refresh();
+        
     },[])
     return (
         <div className=" container mx-auto px-3 mb-10">
             <Helmet>
                 <title>Home</title>
             </Helmet>
-            <div >
+            <div>
                 <Navbar></Navbar>
             </div>
-            <div >
+            <div data-aos="zoom-in-up" data-aos-duration="3000">
                 <Banner></Banner>
             </div>
             <div className="py-5">
@@ -43,10 +43,12 @@ const Home = () => {
                     </Link>
                 </div>
             </div>
-            <div >
+            <div data-aos="fade-down"
+            data-aos-easing="linear"
+            data-aos-duration="3000">
                 <Map></Map>
             </div>
-            <div>
+            <div data-aos="zoom-in-up" data-aos-duration="3000">
                 <Newsletter></Newsletter>
             </div>
         </div>
