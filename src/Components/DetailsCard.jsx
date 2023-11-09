@@ -4,7 +4,7 @@ import { AuthContext } from "../Context/AuthProvider";
 import { FaFileInvoiceDollar, FaBed, } from 'react-icons/fa';
 import { AiFillHome, AiFillPlusCircle } from 'react-icons/ai';
 import { AiFillMinusCircle } from 'react-icons/ai';
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const DetailsCard = ({room}) => {
     const {user} = useContext(AuthContext)
@@ -144,11 +144,18 @@ const DetailsCard = ({room}) => {
                             <span onClick={add} className='text-xl'><AiFillPlusCircle></AiFillPlusCircle></span>
                         </div>
                     </div>
-                    <div className="text-center">
+                    { !user ?
+                        <Link to={"/login"}>
+                            <div  className="text-center">
+                            <button className='my-5 px-5 py-3 rounded-full shadow-lg font-semibold bg-[#00917c] text-white'>Book Now</button>
+                            </div>
+                        </Link>
+                        :
+                        <div className="text-center">
                         <button onClick={handleBooked} className='my-5 px-5 py-3 rounded-full shadow-lg font-semibold bg-[#00917c] text-white'>Book Now</button>
-                    </div>
+                        </div>
+                    }
                 </div>
-                
             </div>
         </div>
     );

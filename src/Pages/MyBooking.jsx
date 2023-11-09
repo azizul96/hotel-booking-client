@@ -6,6 +6,8 @@ import BookingRow from "../Components/BookingRow";
 import Swal from "sweetalert2";
 import Navbar from "../Components/Navbar";
 import { Helmet } from "react-helmet-async";
+import moment from "moment/moment";
+import toast from "react-hot-toast";
 
 
 
@@ -26,50 +28,31 @@ const MyBooking = () => {
         })
         
       }, []);
-    //   console.log(bookings);
-    // const clanderday = (id) => {
-  
-    //     console.log(id);
-   
-            
-    //         const filterdata = Room?.find((data) =>data.id ==id)
-            
-      
-          
-    //     const d1 = filterdata.currentDate
-    //     const d2 = filterdata.Cheack_in_date
-    //     let date1 = new Date(d1);
-    //     let date2 = new Date(d2);
-    //     const time = Math.abs(date1-date2);
-    //     const days = Math.ceil(time/(1000*60*60*24));
-    //     console.log(days);
-
-    //     if(days<1){
-    //         Swal.fire(
-    //             'Sorry',
-    //             `you can't cencle the reservation`,
-    //             'error'
-    //         )
-    //     }
-    //     else{
-    //        const id=filterdata._id
-    //        console.log(id);
-    //         DeleteHandler(id)
-    //     }
-    //  }
+    
 
     const handleDelete = id => {
         
         // const validCancelDate = moment(bookings.date).subtract(1, 'days'._d)
-
+        const findBook = bookings.find(book => book._id == id)
+        const bookDate = findBook.date
+        const validCancelDate = moment(bookDate).subtract(1, 'days')._d
+        const currentTime = moment(new Date())
+        console.log("validCancelDate",validCancelDate, "currentTime",currentTime);
+        if((currentTime.isBefore(validCancelDate, "day"))){
+            console.log("can Cancel");
+        }
+        else{
+            console.log("Can not cancel");
+            return toast.error("Can't cancel! Booking day is tomorrow")
+        }
         Swal.fire({
             title: 'Are you sure?',
-            text: "You won't be able to revert this!",
+            text: "Your Booking will be cancel!",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
+            confirmButtonText: 'Confirm!'
           }).then((result) => {
             if (result.isConfirmed) {
                 fetch(`https://hotel-booking-server-mu.vercel.app/bookings/${id}`,{
